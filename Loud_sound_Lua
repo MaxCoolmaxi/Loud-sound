@@ -1,0 +1,39 @@
+-- âˆ† mean DONT CHANGE ANYTHING (if you dont understand).
+-- Â¶ mean CHANGE IT TO WHATEVER (if you want).
+-- â€½ mean YOU CAN CHANGE BUT I PREFER NOT TO CHANGE.
+----------------------------------------------------------------
+-- SO THIS IS "EIGHT MONO" METHOD AUDIO TROLL RECOOL(REMADE) BY ME AND ORIGINAL ONE MADE BY @VOXLENOX. CREDIT TO HIM, CREDIT TO HERO, HE IS A CHILL NIGGA.
+ 
+local soundId = 142376088 --Â¶
+ 
+local properties = { --âˆ†
+	Pitch = 1, --Â¶
+	Parent = workspace, --â€½
+	Volume = 10, --Â¶
+	Looped = false, --â€½
+	PlayOnRemove = true, -- âˆ†
+	TimePosition = math.huge --âˆ†
+} --âˆ†
+ 
+local localSound = Instance.new("Sound") --âˆ†
+local q = Instance.new("DistortionSoundEffect", localSound) --âˆ†
+local c = Instance.new("EqualizerSoundEffect", localSound) --âˆ†
+ 
+localSound.SoundId = "rbxassetid://"..soundId --âˆ†
+q.Level = .93 --â€½
+c.HighGain = 1 --â€½
+c.LowGain = -25 --â€½
+c.MidGain = 8 --â€½
+ 
+for index, value in pairs(properties) do --âˆ†
+	localSound[index] = value --âˆ†
+end --âˆ†
+ 
+game:GetService("ReplicatedStorage").Remotes.PlaySoundOthers:FireServer(soundId, properties) --âˆ†
+ 
+localSound:Play() --âˆ†
+localSound.Ended:Connect(function() --âˆ†
+	localSound:Destroy() --âˆ†
+end) --âˆ†
+task.wait(4) --âˆ†
+localSound:Destroy() --âˆ†
